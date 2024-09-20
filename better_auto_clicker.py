@@ -3,7 +3,7 @@ import time
 import threading
 
 mouse = Controller()
-click_interval = 0.001
+click_interval = 0.01
 auto_clicking = False
 click_mode = 'left'
 
@@ -12,8 +12,10 @@ def clicker():
         if auto_clicking:
             if click_mode == 'left':
                 mouse.click(Button.left, 1)
+                mouse.release(Button.left)
             elif click_mode == 'right':
                 mouse.click(Button.right, 1)
+                mouse.release(Button.right)
             elif click_mode == 'both':
                 mouse.click(Button.left, 1)
                 mouse.click(Button.right, 1)
