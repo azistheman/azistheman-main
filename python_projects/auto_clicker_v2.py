@@ -55,7 +55,7 @@ def on_click(x, y, button, pressed):
 
 def get_click_mode():
     global click_mode
-    print("Choose your click mode (default is left):\n")
+    print("\nChoose your click mode (default is left):\n")
     print("[1] Left")
     print("[2] Right")
     print("[3] Left & Right\n")
