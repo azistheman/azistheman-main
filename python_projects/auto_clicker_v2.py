@@ -3,9 +3,33 @@ import time
 import threading
 
 mouse = Controller()
-click_interval = 0.01
+click_interval = 0.1
 auto_clicking = False
 click_mode = 'left'
+
+def choose_click_speed():
+    global click_interval
+    print("\nEnter desired speed:")
+    print("**cps may be vary due to prossesing speed**\n")
+
+    print("[1] ~10cps")
+    print("[2] ~20cps")
+    print("[3] ~50cps")
+    print("[4] ~100cps\n")
+
+    click_speed = input(">> ")
+
+    if click_speed == '1':
+        click_interval = 0.1
+    elif click_speed == '2':
+        click_interval = 0.05
+    elif click_speed == '3':
+        click_interval = 0.02
+    elif click_speed == '4':
+        click_interval = 0.01
+    else:
+        print("Invalid choice. Defaulting to ~10cps.")
+        click_interval = 0.1
 
 def clicker():
     while True:
@@ -32,9 +56,9 @@ def on_click(x, y, button, pressed):
 def get_click_mode():
     global click_mode
     print("Choose your click mode (default is left):\n")
-    print("1: Left")
-    print("2: Right")
-    print("3: Left & Right\n")
+    print("[1] Left")
+    print("[2] Right")
+    print("[3] Left & Right\n")
     
     choice = input(">> ")
     
@@ -49,6 +73,7 @@ def get_click_mode():
         click_mode = 'left'
 
 get_click_mode()
+choose_click_speed()
 
 click_thread = threading.Thread(target=clicker)
 click_thread.daemon = True
