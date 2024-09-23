@@ -10,7 +10,7 @@ click_mode = 'left'
 def choose_click_speed():
     global click_interval
     print("\nEnter desired speed:")
-    print("**cps may be vary due to prossesing speed**\n")
+    print("**cps may be vary according to prossesing speed**\n")
 
     print("[1] ~10cps")
     print("[2] ~20cps")
