@@ -5,78 +5,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GreenEdge Lawn Care</title>
     <style>
-        /* General styling for the page */
+        /* Basic page styles */
         body {
             font-family: Arial, sans-serif;
-            background-color: #127e12; /* Dark green background color */
+            background-color: #b8ffc3; /* Page background color */
             color: #000000; /* Text color */
             margin: 0;
             padding: 0;
         }
 
-        /* Container for all the content */
+        /* Container for the content */
         .container {
             text-align: center;
             padding: 50px;
         }
 
-        /* Main heading styles */
+        /* Heading styles */
         h1 {
-            color: #228B22; /* Change the color of the main heading (green) */
+            color: #228B22; /* Main heading color (Green) */
             font-size: 3em;
         }
 
         /* Subheading styles */
         h2 {
-            color: #006400; /* Dark green subheading color */
+            color: #006400; /* Subheading color (Darker Green) */
             font-size: 2em;
         }
 
-        /* Service section styles */
-        .service-list {
-            text-align: left;
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 1.2em;
-        }
-
-        /* Pricing table styles */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-        }
-
-        th {
-            background-color: #228B22; /* Table header background */
-            color: white;
-        }
-
-        /* Paragraph and other text styles */
+        /* Paragraph styles */
         p {
             font-size: 1.2em;
+            color: #000000; /* Paragraph text color */
         }
 
-        /* Button styling */
-        .btn {
-            background-color: #4CAF50; /* Button background color */
-            color: white; /* Button text color */
-            padding: 10px 20px;
-            border: none;
+        /* Services list */
+        .services {
+            text-align: left;
+            margin: 0 auto;
+            max-width: 600px;
+        }
+
+        .services h3 {
+            color: #228B22; /* Heading color for services */
+        }
+
+        .services ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .services ul li {
+            background-color: #b8ffc3; /* Light green background for each service */
+            padding: 10px;
+            margin: 10px 0;
             border-radius: 5px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
         }
 
-        .btn:hover {
-            background-color: #45a049; /* Button hover effect */
+        /* Pricing table */
+        .pricing {
+            margin: 30px auto;
+            max-width: 600px;
+            text-align: left;
         }
+
+        .pricing table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .pricing th, .pricing td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .pricing th {
+            background-color: #4CAF50; /* Table header background color */
+            color: white; /* Table header text color */
+        }
+
+        .pricing td {
+            background-color: #f9f9f9; /* Table cell background color */
+        }
+
+        /* Footer styles */
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #228B22; /* Footer background color */
+            color: white; /* Footer text color */
+            text-align: center;
+        }
+
     </style>
 </head>
 <body>
@@ -86,70 +106,71 @@
         <h1>Welcome to GreenEdge Lawn Care!</h1>
         
         <!-- Subheading -->
-        <h2>Your Lawn, Our Care</h2>
+        <h2>We Keep Your Lawn Fresh and Green</h2>
 
-        <!-- Introduction paragraph -->
-        <p>At GreenEdge Lawn Care, we offer a wide range of services to keep your lawn looking pristine and beautiful. Check out our services and pricing below!</p>
-
-        <!-- Services List -->
-        <div class="service-list">
-            <h2>Our Services</h2>
+        <!-- Services Section -->
+        <div class="services">
+            <h3>Our Services:</h3>
             <ul>
-                <li>Lawn Mowing - Weekly, bi-weekly, or on-demand options.</li>
-                <li>Edging and Trimming - Keep your sidewalks and driveways sharp.</li>
-                <li>Weeding - Hand-pull weeds or apply treatments.</li>
-                <li>Leaf Removal - Seasonal leaf clearing services.</li>
-                <li>Fertilizing and Seeding - For a greener, healthier lawn.</li>
-                <li>Mulching - Adding or replacing mulch around trees or flower beds.</li>
-                <li>Hedge or Shrub Trimming - Keep your bushes and shrubs in shape.</li>
-                <li>Yard Cleanup - General debris and clutter removal.</li>
+                <li>Lawn Mowing - Weekly/bi-weekly options available</li>
+                <li>Edging and Trimming - Sharp lines along sidewalks and driveways</li>
+                <li>Weeding - Hand-pulling or weed control treatments</li>
+                <li>Leaf Removal - Seasonal yard clearing</li>
+                <li>Fertilizing and Seeding - Keeping lawns healthy and lush</li>
+                <li>Mulching - For flower beds and trees</li>
+                <li>Hedge and Shrub Trimming - Maintaining your bushes</li>
+                <li>Yard Cleanup - Debris and clutter removal</li>
             </ul>
         </div>
 
-        <!-- Pricing Table -->
-        <table>
-            <tr>
-                <th>Service</th>
-                <th>Price</th>
-            </tr>
-            <tr>
-                <td>Lawn Mowing</td>
-                <td>$30 - $40 ($25 for weekly/bi-weekly)</td>
-            </tr>
-            <tr>
-                <td>Edging and Trimming</td>
-                <td>$10 - $15</td>
-            </tr>
-            <tr>
-                <td>Weeding</td>
-                <td>$13/hr or $20 - $30 depending on lawn size</td>
-            </tr>
-            <tr>
-                <td>Leaf Removal</td>
-                <td>$30 - $75 depending on yard size</td>
-            </tr>
-            <tr>
-                <td>Fertilizing</td>
-                <td>$25 - $40 + materials</td>
-            </tr>
-            <tr>
-                <td>Mulching</td>
-                <td>$30 - $60 + materials</td>
-            </tr>
-            <tr>
-                <td>Hedge or Shrub Trimming</td>
-                <td>$5 - $15</td>
-            </tr>
-            <tr>
-                <td>Yard Cleanup</td>
-                <td>$15 - $200 depending on scope of work</td>
-            </tr>
-        </table>
-
-        <!-- Contact Button -->
-        <button class="btn">Contact Us</button>
-
+        <!-- Pricing Section -->
+        <div class="pricing">
+            <h3>Pricing:</h3>
+            <table>
+                <tr>
+                    <th>Service</th>
+                    <th>Price</th>
+                </tr>
+                <tr>
+                    <td>Lawn Mowing</td>
+                    <td>$30 - $40</td>
+                </tr>
+                <tr>
+                    <td>Edging/Trimming</td>
+                    <td>$10 - $15 (add-on)</td>
+                </tr>
+                <tr>
+                    <td>Weeding</td>
+                    <td>$13/hour OR $20 - $30</td>
+                </tr>
+                <tr>
+                    <td>Leaf Removal</td>
+                    <td>$30 - $75</td>
+                </tr>
+                <tr>
+                    <td>Fertilizing</td>
+                    <td>$25 - $40 plus materials</td>
+                </tr>
+                <tr>
+                    <td>Mulching</td>
+                    <td>$30 - $60 plus materials</td>
+                </tr>
+                <tr>
+                    <td>Hedge/Shrub Trimming</td>
+                    <td>$5 - $15</td>
+                </tr>
+                <tr>
+                    <td>Yard Cleanup</td>
+                    <td>$15 - $200 depending on scope</td>
+                </tr>
+            </table>
+        </div>
     </div>
+
+    <!-- Footer Section -->
+    <footer>
+        Contact us at: info@greenedgelawncare.com | Call: (555) 123-4567
+    </footer>
 
 </body>
 </html>
