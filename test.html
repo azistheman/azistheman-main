@@ -1,0 +1,85 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Protected Links</title>
+    <style>
+      :root { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+      body { min-height: 100svh; display: grid; place-items: center; background: #0f172a; color: #e5e7eb; margin: 0; }
+      .card { width: min(680px, 92vw); background: #111827; border: 1px solid #1f2937; border-radius: 16px; padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,.35); }
+      h1 { margin: 0 0 4px; font-size: 1.25rem; }
+      p.sub { margin: 0 0 16px; color: #9ca3af; font-size: .95rem; }
+      form { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; }
+      label { grid-column: 1 / -1; font-size: .95rem; color: #cbd5e1; }
+      input[type="password"] { padding: 12px 14px; border-radius: 10px; border: 1px solid #374151; background: #0b1220; color: #e5e7eb; outline: none; }
+      input[type="password"]:focus { border-color: #60a5fa; box-shadow: 0 0 0 3px rgba(96,165,250,.25); }
+      button { padding: 12px 16px; border-radius: 10px; border: 1px solid #2563eb; background: #1d4ed8; color: #fff; cursor: pointer; font-weight: 600; }
+      button:hover { filter: brightness(1.05); }
+      .msg { margin-top: 10px; min-height: 1.25em; color: #fca5a5; }
+      .links { display: none; margin-top: 12px; }
+      .links a { display: block; padding: 10px 12px; margin: 8px 0; border-radius: 10px; background: #0b1220; border: 1px solid #1f2937; color: #93c5fd; text-decoration: none; }
+      .links a:hover { background: #0e1627; }
+      .meta { margin-top: 10px; color: #94a3b8; font-size: .85rem; }
+    </style>
+  </head>
+  <body>
+    <main class="card" aria-live="polite">
+      <h1>Enter Password</h1>
+      <p class="sub">This is a simple, single‑file page that reveals links after the correct password.</p><form id="gate" autocomplete="off">
+    <label for="pw">Password</label>
+    <input id="pw" type="password" inputmode="text" placeholder="Enter password" required />
+    <button id="enter" type="submit">Unlock</button>
+    <div id="msg" class="msg" role="status" aria-live="polite"></div>
+  </form>
+
+  <section id="protected" class="links" aria-hidden="true">
+    <h2 style="font-size:1.05rem;margin:8px 0 6px;">Links</h2>
+    <a href="https://example.com/page1" target="_blank" rel="noopener">Example Page 1</a>
+    <a href="https://example.com/page2" target="_blank" rel="noopener">Example Page 2</a>
+    <a href="https://example.com/page3" target="_blank" rel="noopener">Example Page 3</a>
+    <p class="meta">Tip: edit this file to change the links or the password.</p>
+  </section>
+</main>
+
+<script>
+  // ⚠️ Client-side only: this is NOT secure for real authentication.
+  // Change this to whatever password you want.
+  const PASSWORD = "letmein123";
+
+  const gate = document.getElementById("gate");
+  const pwInput = document.getElementById("pw");
+  const msg = document.getElementById("msg");
+  const protectedBox = document.getElementById("protected");
+
+  // If previously unlocked in this tab, keep it open
+  if (sessionStorage.getItem("unlocked") === "yes") {
+    showLinks();
+  }
+
+  gate.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const attempt = pwInput.value.trim();
+    if (!attempt) return;
+    if (attempt === PASSWORD) {
+      sessionStorage.setItem("unlocked", "yes");
+      showLinks();
+    } else {
+      msg.textContent = "Incorrect password. Try again.";
+      pwInput.value = "";
+      pwInput.focus();
+    }
+  });
+
+  function showLinks() {
+    document.querySelector("h1").textContent = "Links Unlocked";
+    msg.textContent = "";
+    gate.style.display = "none";
+    protectedBox.style.display = "block";
+    protectedBox.setAttribute("aria-hidden", "false");
+  }
+</script>
+
+  </body>
+</html>
